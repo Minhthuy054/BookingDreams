@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "ZmQuLSVDKJSMsq1bXGvB1EpTHuHiFqowda9V7xsJ3Rk=",
+  "Source": "BookingDreams",
+  "BasePath": "_content/BookingDreams",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "BookingDreams\\wwwroot",
+      "Source": "BookingDreams",
+      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "BasePath": "_content/BookingDreams",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
