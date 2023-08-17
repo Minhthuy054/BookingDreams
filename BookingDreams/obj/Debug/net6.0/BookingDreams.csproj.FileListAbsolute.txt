@@ -1,5 +1,6 @@
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\bin\Debug\net6.0\appsettings.json
+C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\bin\Debug\net6.0\BookingDreams.staticwebassets.runtime.json
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\bin\Debug\net6.0\BookingDreams.exe
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\bin\Debug\net6.0\BookingDreams.deps.json
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\bin\Debug\net6.0\BookingDreams.runtimeconfig.json
@@ -233,8 +234,6 @@ C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\obj\Debug\net6.0\Booking
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\obj\Debug\net6.0\BookingDreams.AssemblyInfoInputs.cache
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\obj\Debug\net6.0\BookingDreams.AssemblyInfo.cs
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\obj\Debug\net6.0\BookingDreams.csproj.CoreCompileInputs.cache
-C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\obj\Debug\net6.0\BookingDreams.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\obj\Debug\net6.0\BookingDreams.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\obj\Debug\net6.0\staticwebassets\msbuild.BookingDreams.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\obj\Debug\net6.0\staticwebassets\msbuild.build.BookingDreams.props
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BookingDreams.props
@@ -249,4 +248,3 @@ C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\obj\Debug\net6.0\refint\
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\obj\Debug\net6.0\BookingDreams.pdb
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\obj\Debug\net6.0\BookingDreams.genruntimeconfig.cache
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\obj\Debug\net6.0\ref\BookingDreams.dll
-C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\bin\Debug\net6.0\BookingDreams.staticwebassets.runtime.json

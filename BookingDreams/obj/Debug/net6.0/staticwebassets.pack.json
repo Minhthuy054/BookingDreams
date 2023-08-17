@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151042223AnhBanner.png..png",
+      "PackagePath": "staticwebassets\\images\\phong\\2023-08-16\\Phong_20230816151042223AnhBanner.png..png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151042310trangchu2.png..png",
+      "PackagePath": "staticwebassets\\images\\phong\\2023-08-16\\Phong_20230816151042310trangchu2.png..png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151248839AnhBanner - Copy.png..png",
+      "PackagePath": "staticwebassets\\images\\phong\\2023-08-16\\Phong_20230816151248839AnhBanner - Copy.png..png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151248915trangabout2.png..png",
+      "PackagePath": "staticwebassets\\images\\phong\\2023-08-16\\Phong_20230816151248915trangabout2.png..png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816152219933_AnhBanner.png",
+      "PackagePath": "staticwebassets\\images\\phong\\2023-08-16\\Phong_20230816152219933_AnhBanner.png"
+    },
+    {
+      "Id": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816152219977_2020-11-29.png",
+      "PackagePath": "staticwebassets\\images\\phong\\2023-08-16\\Phong_20230816152219977_2020-11-29.png"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.BookingDreams.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.BookingDreams.props",
+      "PackagePath": "build\\BookingDreams.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.BookingDreams.props",
+      "PackagePath": "buildMultiTargeting\\BookingDreams.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.BookingDreams.props",
+      "PackagePath": "buildTransitive\\BookingDreams.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

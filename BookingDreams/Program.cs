@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 
 
 //Khai báo để api public cho mn sử dụng
-builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
+builder.Services.AddCors(options => options.AddPolicy("MyCors",policy => policy.WithOrigins("*").AllowAnyHeader().AllowAnyMethod()));
 //Đăng kí đb
 builder.Services.AddDbContext<BookingDreamsContext>(options =>
 {
@@ -44,6 +44,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//Sử dụng cors
+app.UseCors("MyCors");
 
 app.UseAuthorization();
 

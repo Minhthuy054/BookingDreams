@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using BookingDreams.Data;
 using BookingDreams.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace BookingDreams.Respositories
 {
@@ -10,11 +12,13 @@ namespace BookingDreams.Respositories
     {
         private readonly BookingDreamsContext _context;
         private readonly IMapper _mapper;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public PhongRes(BookingDreamsContext context, IMapper mapper)
+        public PhongRes(BookingDreamsContext context, IMapper mapper, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _mapper = mapper;
+            _webHostEnvironment = webHostEnvironment;
         }
         public async Task<List<PhongModel>> GetAll()
         {
@@ -26,9 +30,8 @@ namespace BookingDreams.Respositories
             var phong = await _context.Phongs!.FindAsync(id);
             return _mapper.Map<PhongModel>(phong);
         }
-        public async Task<int> Add([FromForm] PhongModel phong )
+        public async Task<int> Add(PhongModel phong )
         {
-            
             var newPhong = _mapper.Map<Phong>(phong);
             _context.Add(newPhong);
             await _context.SaveChangesAsync();
