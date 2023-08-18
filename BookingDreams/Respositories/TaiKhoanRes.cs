@@ -1,53 +1,75 @@
 ﻿using AutoMapper;
 using BookingDreams.Data;
 using BookingDreams.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace BookingDreams.Respositories
 {
-    public class TaiKhoanRes
-    {
-        private readonly BookingDreamsContext _context;
-        private readonly IMapper _mapper;
+    public class TaiKhoanRes 
+    { 
+        private readonly UserManager<TaiKhoan> userManager;
+        private readonly SignInManager<TaiKhoan> signInManager;
+        private readonly IConfiguration configuration;
+        private readonly BookingDreamsContext context;
+        private readonly IMapper mapper;
 
-        public TaiKhoanRes(BookingDreamsContext context, IMapper mapper) {
-            _context = context;
-            _mapper = mapper;
+        public TaiKhoanRes(UserManager<TaiKhoan> userManager, SignInManager<TaiKhoan> signInManager , IConfiguration configuration, BookingDreamsContext context, IMapper mapper) {
+            this.userManager = userManager; 
+            this.signInManager = signInManager;
+            this.configuration = configuration;
+            this.context = context;
+            this.mapper = mapper;
         }
-        public async Task<List<TaiKhoanModel>> GetAll()
+        public async Task<IdentityResult> DangKi(DangKiModel dk)
         {
-            var taiKhoans = await _context.TaiKhoans!.ToListAsync();
-            return _mapper.Map<List<TaiKhoanModel>>(taiKhoans);
-        }
-        public async Task<TaiKhoanModel> GetByID(int id)
-        {
-            var taiKhoan = await _context.TaiKhoans!.FindAsync(id);
-            return _mapper.Map<TaiKhoanModel>(taiKhoan);
-        }
-        public async Task<int> Add(TaiKhoanModel taiKhoan)
-        {
-            var newTaiKhoan = _mapper.Map<TaiKhoan>(taiKhoan);
-            _context.TaiKhoans!.Add(newTaiKhoan);
-            await _context.SaveChangesAsync();
-            return newTaiKhoan.Id;
-        }
-        public async Task Update(TaiKhoanModel taiKhoan, int id)
-        {
-            if(taiKhoan.Id == id)
+            var user = new TaiKhoan
             {
-                var newTaiKhoan = _mapper.Map<TaiKhoan>(taiKhoan);
-                _context.TaiKhoans!.Update(newTaiKhoan);
-                await _context.SaveChangesAsync();
-            }
-        }
-        public async Task Delete(int id)
-        {
-            var taiKhoan = _context.TaiKhoans!.SingleOrDefault(x => x.Id == id);
-            if(taiKhoan != null)
+                HoTen = dk.HoTen,
+                NgaySinh = dk.NgaySinh,
+                Email = dk.Email,
+                UserName = dk.Email
+            };
+            var khachHang = new KhachHangModel
             {
-                _context.TaiKhoans!.Remove(taiKhoan);
-                await _context.SaveChangesAsync();
+                HoTen = dk.HoTen,
+                CCCD = dk.CCCD,
+                GioiTinh = dk.GioiTinh,
+                SDT = dk.SDT,
+                DiaChi = dk.DiaChi,
+                NgaySinh = dk.NgaySinh
+            };
+            var newKhachhang = mapper.Map<KhachHang>(khachHang);
+            context.KhachHangs!.Add(newKhachhang);
+            await context.SaveChangesAsync();
+            return await userManager.CreateAsync(user, dk.Password);
+        }
+        public async Task<string> DangNhap(DangNhapModel dn)
+        {
+            var result = signInManager.PasswordSignInAsync(dn.Email, dn.Password, false, false);
+            if (!result.IsCompletedSuccessfully)
+            {
+                return string.Empty;
             }
+            var authClaims =new List<Claim>
+            {
+                new Claim(ClaimTypes.Email, dn.Email),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                //new Claim(ClaimTypes.Email, dn.Email),
+            };
+            var authenKey = new SymmetricSecurityKey( Encoding.UTF8.GetBytes(configuration["JWT:Secret"]));
+            var token = new JwtSecurityToken(
+                    issuer: configuration["JWT:ValidIssuer"],
+                    audience: configuration["JWT:ValidAudience"],
+                    expires:DateTime.Now.AddMinutes(10),
+                    claims: authClaims,
+                    signingCredentials: new SigningCredentials(authenKey,SecurityAlgorithms.HmacSha512Signature)
+                );
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

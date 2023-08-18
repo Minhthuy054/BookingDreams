@@ -15,6 +15,9 @@ namespace BookingDreams.Data
         public int GiaPhong { get; set; }
         public int IdLoai { get; set; }
         public string HinhAnh { get; set; }
+        public string MoTa { get; set; }
+        public int SoLuong { get; set; }
+        public string Kieu { get; set; }
         public bool Active { get; set; }
     }
 }

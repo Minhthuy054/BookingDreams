@@ -18,6 +18,7 @@ namespace BookingDreams.Helpers
             CreateMap<Role, RoleModel>().ReverseMap();
             CreateMap<TaiKhoan, TaiKhoanModel>().ReverseMap();
             CreateMap<ThanhToan, ThanhToanModel>().ReverseMap();
+            CreateMap<TinhThanh, TinhThanhModel>().ReverseMap();
         }
     }
 }

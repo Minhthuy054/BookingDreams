@@ -9,6 +9,8 @@ using BookingDreams.Data;
 using BookingDreams.Respositories;
 using BookingDreams.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using BookingDreams.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookingDreams.Controllers
 {
@@ -18,11 +20,13 @@ namespace BookingDreams.Controllers
     {
         private readonly BookingDreamsContext _context;
         private readonly KhachSanRes _repo;
+        private readonly FuncSupport _funcSupport;
 
-        public KhachSansController(BookingDreamsContext context, KhachSanRes repo)
+        public KhachSansController(BookingDreamsContext context, KhachSanRes repo, FuncSupport funcSupport)
         {
             _context = context;
-            _repo = repo; 
+            _repo = repo;
+            _funcSupport = funcSupport;
         }
 
         // GET: api/KhachSans
@@ -62,9 +66,11 @@ namespace BookingDreams.Controllers
         // PUT: api/KhachSans/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutKhachSan(int id, KhachSanModel khachSan)
+        [Authorize]
+        public async Task<IActionResult> PutKhachSan(int id, [FromForm] KhachSanImg khachSanImg)
         {
-            if (id != khachSan.Id)
+
+            if (id != khachSanImg.Id)
             {
                 return BadRequest();
             }
@@ -73,7 +79,48 @@ namespace BookingDreams.Controllers
 
             try
             {
-                await _repo.Update(khachSan,id);
+                string lstLink = "";
+                var newKhachSan = new KhachSanModel
+                {
+                    IdTinhThanh = khachSanImg.IdTinhThanh,
+                    MaKhachSan = khachSanImg.MaKhachSan,
+                    TenKhachSan = khachSanImg.TenKhachSan,
+                    DiaChi = khachSanImg.DiaChi,
+                    GioiThieu = khachSanImg.GioiThieu,
+                    TieuDe = khachSanImg.TieuDe,
+                    GhiChu = khachSanImg.GhiChu
+                };
+
+                if (khachSanImg.HinhAnhFile.Count() > 0)
+                {
+
+                    foreach (var file in khachSanImg.HinhAnhFile)
+                    {
+                        if (!_funcSupport.IsImageFile(file))
+                        {
+                            return BadRequest("Tệp đầu vào không phải là ảnh");
+                        }
+                        DateTime date = DateTime.Now;
+                        string publishPath = Path.Combine(@"images", "KhachSan", date.ToString("yyyy-MM-dd"));
+                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", publishPath);//Đường dẫn để lưu file
+                        if (!Directory.Exists(path))
+                        {
+                            Directory.CreateDirectory(path);
+                        }
+                        string fileExtension = new FileInfo(file.FileName).Extension; //Định dạng của file (png,jpg,...)
+                        string filePath = "KhachSan" + "_" + date.ToString("yyyyMMddHHmmssfff") + "_" + file.FileName; //Tên file lưu vào hệ thống
+                                                                                                                       //Lưu file vào hệ thống
+                        using (var fileStream = new FileStream(Path.Combine(path, filePath), FileMode.Create))
+                        {
+                            await file.CopyToAsync(fileStream);
+                        }
+                        lstLink += Path.Combine(path, filePath) + ";";
+                    }
+                }
+                newKhachSan.HinhAnh = lstLink;
+
+
+                await _repo.Update(newKhachSan,id);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -93,15 +140,52 @@ namespace BookingDreams.Controllers
         // POST: api/KhachSans
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<KhachSanModel>> PostKhachSan(KhachSanModel khachSan)
+        public async Task<ActionResult<KhachSanModel>> PostKhachSan([FromForm] KhachSanImg khachSan)
         {
           if (_context.KhachSans == null)
           {
               return Problem("Entity set 'BookingDreamsContext.KhachSans'  is null.");
           }
-            //_context.KhachSans.Add(khachSan);
-            //await _context.SaveChangesAsync();
-            await _repo.Add(khachSan);
+            string lstLink = "";
+            var newKhachSan = new KhachSanModel
+            {
+                IdTinhThanh = khachSan.IdTinhThanh,
+                MaKhachSan = khachSan.MaKhachSan,
+                TenKhachSan = khachSan.TenKhachSan,
+                DiaChi = khachSan.DiaChi,
+                GioiThieu = khachSan.GioiThieu,
+                TieuDe = khachSan.TieuDe,
+                GhiChu = khachSan.GhiChu
+            };
+
+            if (khachSan.HinhAnhFile.Count() > 0)
+            {
+
+                foreach (var file in khachSan.HinhAnhFile)
+                {
+                    if (!_funcSupport.IsImageFile(file))
+                    {
+                        return BadRequest("Tệp đầu vào không phải là ảnh");
+                    }
+                    DateTime date = DateTime.Now;
+                    string publishPath = Path.Combine(@"images", "KhachSan", date.ToString("yyyy-MM-dd"));
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", publishPath);//Đường dẫn để lưu file
+                    if (!Directory.Exists(path))
+                    {
+                        Directory.CreateDirectory(path);
+                    }
+                    string fileExtension = new FileInfo(file.FileName).Extension; //Định dạng của file (png,jpg,...)
+                    string filePath = "KhachSan" + "_" + date.ToString("yyyyMMddHHmmssfff") + "_" + file.FileName; //Tên file lưu vào hệ thống
+                    //Lưu file vào hệ thống
+                    using (var fileStream = new FileStream(Path.Combine(path, filePath), FileMode.Create))
+                    {
+                        await file.CopyToAsync(fileStream);
+                    }
+                    lstLink += Path.Combine(path, filePath) + ";";
+                }
+            }
+            newKhachSan.HinhAnh = lstLink;
+            await _repo.Add(newKhachSan);
 
             return CreatedAtAction("GetKhachSan", new { id = khachSan.Id }, khachSan);
         }

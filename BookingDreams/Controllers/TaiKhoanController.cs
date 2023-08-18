@@ -14,49 +14,60 @@ namespace BookingDreams.Controllers
     {
         private readonly TaiKhoanRes _repo;
 
-        public TaiKhoanController(TaiKhoanRes repo) {
+        public TaiKhoanController(TaiKhoanRes repo)
+        {
             _repo = repo;
         }
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+        //[HttpGet]
+        //public async Task<IActionResult> GetAll()
+        //{
+        //    return Ok(await _repo.GetAll());
+        //}
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<TaiKhoanModel>> GetByID(int id)
+        //{
+        //    var taiKhoan = await _repo.GetByID(id);
+        //    return taiKhoan;
+        //}
+        [HttpPost("DangKi")]
+        public async Task<IActionResult> DangKi(DangKiModel dangKi)
         {
-            return Ok(await _repo.GetAll());
-        }
-        [HttpGet("{id}")]
-        public async Task<ActionResult<TaiKhoanModel>> GetByID(int id)
-        {
-            var taiKhoan = await _repo.GetByID(id);
-            return taiKhoan;
-        }
-        [HttpPost]
-        public async Task<IActionResult> Create(TaiKhoanModel taiKhoan)
-        {
-            if(taiKhoan == null)
+            var resutl = await _repo.DangKi(dangKi);
+            if (resutl.Succeeded)
             {
-                return BadRequest();
+                return Ok(resutl.Succeeded);
             }
-            await _repo.Add(taiKhoan);
-            return Ok();
+            return Unauthorized();
         }
-        [HttpPut]
-        public async Task<IActionResult> Update(TaiKhoanModel taiKhoan, int id)
+        [HttpPost("DangNhap")]
+        public async Task<IActionResult> DangNhap(DangNhapModel dangNhap)
         {
-            if(taiKhoan.Id != id)
+            var result = await _repo.DangNhap(dangNhap);
+            if (string.IsNullOrEmpty(result))
             {
-                return BadRequest();
+                return Unauthorized();
             }
-            await _repo.Update(taiKhoan, id);
-            return Ok();
+            return Ok(result);
         }
-        [HttpDelete]
-        public async Task<IActionResult> Delete(int id)
-        {
-            if(_repo.GetAll() == null)
-            {
-                return BadRequest();
-            }
-            await _repo.Delete(id);
-            return Ok();
-        }
+        //[HttpPut]
+        //public async Task<IActionResult> Update(TaiKhoanModel taiKhoan, int id)
+        //{
+        //    if (taiKhoan.Id != id)
+        //    {
+        //        return BadRequest();
+        //    }
+        //    await _repo.Update(taiKhoan, id);
+        //    return Ok();
+        //}
+        //[HttpDelete]
+        //public async Task<IActionResult> Delete(int id)
+        //{
+        //    if (_repo.GetAll() == null)
+        //    {
+        //        return BadRequest();
+        //    }
+        //    await _repo.Delete(id);
+        //    return Ok();
+        //}
     }
 }
