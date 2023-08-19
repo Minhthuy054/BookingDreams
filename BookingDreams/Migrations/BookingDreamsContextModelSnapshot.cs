@@ -304,8 +304,16 @@ namespace BookingDreams.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("CCCD")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DiaChi")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -313,6 +321,9 @@ namespace BookingDreams.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("GioiTinh")
                         .HasColumnType("bit");
 
                     b.Property<string>("HoTen")
@@ -449,6 +460,29 @@ namespace BookingDreams.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "af18d7b8-75aa-4aac-b677-d1391526cc7a",
+                            ConcurrencyStamp = "1",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
+                        },
+                        new
+                        {
+                            Id = "0027a3b8-e86f-49bf-99bb-999b8522962a",
+                            ConcurrencyStamp = "2",
+                            Name = "NhanVien",
+                            NormalizedName = "NhanVien"
+                        },
+                        new
+                        {
+                            Id = "fa7e2751-e0be-4c14-9448-d4ebfea7e560",
+                            ConcurrencyStamp = "3",
+                            Name = "KhachHang",
+                            NormalizedName = "KhachHang"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

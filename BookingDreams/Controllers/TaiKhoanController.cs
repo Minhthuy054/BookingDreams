@@ -30,9 +30,9 @@ namespace BookingDreams.Controllers
         //    return taiKhoan;
         //}
         [HttpPost("DangKi")]
-        public async Task<IActionResult> DangKi(DangKiModel dangKi)
+        public async Task<IActionResult> DangKi(DangKiModel dangKi,string role)
         {
-            var resutl = await _repo.DangKi(dangKi);
+            var resutl = await _repo.DangKi(dangKi,role);
             if (resutl.Succeeded)
             {
                 return Ok(resutl.Succeeded);

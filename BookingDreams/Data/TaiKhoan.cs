@@ -7,5 +7,8 @@ namespace BookingDreams.Data
     {
         public string HoTen { get; set; }
         public DateTime NgaySinh { get; set; }
+        public string CCCD { get; set; }
+        public bool GioiTinh { get; set; }
+        public string DiaChi { get; set; }
     }
 }

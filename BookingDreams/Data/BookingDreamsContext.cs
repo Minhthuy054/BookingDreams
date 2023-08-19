@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookingDreams.Data
@@ -22,5 +23,18 @@ namespace BookingDreams.Data
             public DbSet<ChucVu>? ChucVus { get; set; }
             public DbSet<HinhAnh>? HinhAnhs { get; set; }
         #endregion
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            SeedRoles(builder);
+        }
+        private static void SeedRoles(ModelBuilder builder)
+        {
+            builder.Entity<IdentityRole>().HasData(
+                    new IdentityRole() { Name = "Admin", NormalizedName ="Admin", ConcurrencyStamp = "1"},
+                    new IdentityRole() { Name = "NhanVien", NormalizedName ="NhanVien", ConcurrencyStamp = "2"},
+                    new IdentityRole() { Name = "KhachHang", NormalizedName ="KhachHang", ConcurrencyStamp = "3"}
+                );
+        }
     }
 }
