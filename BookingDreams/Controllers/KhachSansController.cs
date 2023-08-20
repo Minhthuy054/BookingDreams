@@ -80,6 +80,7 @@ namespace BookingDreams.Controllers
             try
             {
                 string lstLink = "";
+                string link = "";
                 var newKhachSan = new KhachSanModel
                 {
                     IdTinhThanh = khachSanImg.IdTinhThanh,
@@ -114,7 +115,9 @@ namespace BookingDreams.Controllers
                         {
                             await file.CopyToAsync(fileStream);
                         }
-                        lstLink += Path.Combine(path, filePath) + ";";
+                        link = Path.Combine(publishPath, filePath);
+                        link = link.Replace("\\", "/");
+                        lstLink += link + ";";
                     }
                 }
                 newKhachSan.HinhAnh = lstLink;
@@ -147,6 +150,7 @@ namespace BookingDreams.Controllers
               return Problem("Entity set 'BookingDreamsContext.KhachSans'  is null.");
           }
             string lstLink = "";
+            string link = "";
             var newKhachSan = new KhachSanModel
             {
                 IdTinhThanh = khachSan.IdTinhThanh,
@@ -181,7 +185,9 @@ namespace BookingDreams.Controllers
                     {
                         await file.CopyToAsync(fileStream);
                     }
-                    lstLink += Path.Combine(path, filePath) + ";";
+                    link = Path.Combine(publishPath, filePath);
+                    link = link.Replace("\\","/");
+                    lstLink += link + ";";
                 }
             }
             newKhachSan.HinhAnh = lstLink;
