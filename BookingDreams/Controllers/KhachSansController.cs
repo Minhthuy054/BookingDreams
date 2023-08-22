@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BookingDreams.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class KhachSansController : ControllerBase

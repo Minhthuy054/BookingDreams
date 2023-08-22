@@ -78,31 +78,42 @@ namespace BookingDreams.Respositories
             };
             
             var result = await userManager.CreateAsync(user, dk.Password);
-            
+            //add role to user
             return await userManager.AddToRoleAsync(user, role);
         }
         public async Task<string> DangNhap(DangNhapModel dn)
         {
-            var result = await signInManager.PasswordSignInAsync(dn.Email, dn.Password, false, false);
-            if (!result.Succeeded)
+            //var result = await signInManager.PasswordSignInAsync(dn.Email, dn.Password, false, false);
+            //if (!result.Succeeded)
+            //{
+            //    return string.Empty;
+            //}
+            var user = await userManager.FindByNameAsync(dn.Email);
+            if(user != null && await userManager.CheckPasswordAsync(user,dn.Password))
             {
-                return string.Empty;
+                var authClaims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Email, dn.Email),
+                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+                    //new Claim(ClaimTypes.Email, dn.Email),
+                };
+                var userRole = await userManager.GetRolesAsync(user);
+                foreach(var role in userRole)
+                {
+                        authClaims.Add(new Claim(ClaimTypes.Role, role));
+                }
+                var authenKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]));
+                var token = new JwtSecurityToken(
+                            issuer: configuration["JWT:ValidIssuer"],
+                            audience: configuration["JWT:ValidAudience"],
+                            expires: DateTime.Now.AddMinutes(10),
+                            claims: authClaims,
+                            signingCredentials: new SigningCredentials(authenKey, SecurityAlgorithms.HmacSha512Signature)
+                        );
+                return new JwtSecurityTokenHandler().WriteToken(token);
             }
-            var authClaims =new List<Claim>
-            {
-                new Claim(ClaimTypes.Email, dn.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-                //new Claim(ClaimTypes.Email, dn.Email),
-            };
-            var authenKey = new SymmetricSecurityKey( Encoding.UTF8.GetBytes(configuration["JWT:Secret"]));
-            var token = new JwtSecurityToken(
-                    issuer: configuration["JWT:ValidIssuer"],
-                    audience: configuration["JWT:ValidAudience"],
-                    expires:DateTime.Now.AddMinutes(10),
-                    claims: authClaims,
-                    signingCredentials: new SigningCredentials(authenKey,SecurityAlgorithms.HmacSha512Signature)
-                );
-            return new JwtSecurityTokenHandler().WriteToken(token);
+
+            return "Login Unsuccess";
         }
     }
 }

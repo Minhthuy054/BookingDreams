@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Drawing;
 using System.Drawing.Printing;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookingDreams.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PhongController : ControllerBase

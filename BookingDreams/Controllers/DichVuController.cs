@@ -1,10 +1,12 @@
 ﻿using BookingDreams.Models;
 using BookingDreams.Respositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookingDreams.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class DichVuController : ControllerBase
