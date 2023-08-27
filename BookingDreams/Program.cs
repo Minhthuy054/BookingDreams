@@ -1,12 +1,18 @@
 ﻿using BookingDreams.Data;
 using BookingDreams.Helpers;
 using BookingDreams.Respositories;
+using BookingDreamsServices.Model;
+using BookingDreamsServices.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Build.Framework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+//using NETCore.MailKit.Core;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -71,7 +77,20 @@ builder.Services.AddScoped<RoleRes>();
 builder.Services.AddScoped<TaiKhoanRes>();
 builder.Services.AddScoped<ThanhToanRes>();
 builder.Services.AddScoped<TinhThanhRes>();
+builder.Services.AddScoped<Microsoft.AspNetCore.Mvc.Routing.UrlActionContext>();
 
+//Thêm cấu hình email
+builder.Services.Configure<IdentityOptions>(op => op.SignIn.RequireConfirmedEmail = true);
+var emailConfig = builder.Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
+builder.Services.AddSingleton(emailConfig);
+
+builder.Services.AddScoped<IEmailService,EmailService>();
+//builder.Services.AddScoped<IUrlHelper, UrlHelper>(implementationFactory =>
+//{
+//    var actionContext = implementationFactory.GetRequiredService<IActionContextAccessor>().ActionContext;
+//    var factory = implementationFactory.GetRequiredService<IUrlHelperFactory>();
+//    return (UrlHelper)factory.GetUrlHelper(actionContext);
+//});
 //Khai bao JWT
 builder.Services.AddAuthentication(op =>
 {

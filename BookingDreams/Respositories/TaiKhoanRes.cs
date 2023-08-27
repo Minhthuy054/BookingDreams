@@ -1,14 +1,19 @@
 ﻿using AutoMapper;
 using BookingDreams.Data;
 using BookingDreams.Models;
+using BookingDreamsServices.Model;
+using BookingDreamsServices.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using NETCore.MailKit.Core;
 using System.IdentityModel.Tokens.Jwt;
 using System.Net.WebSockets;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace BookingDreams.Respositories
 {
@@ -20,18 +25,23 @@ namespace BookingDreams.Respositories
         private readonly BookingDreamsContext context;
         private readonly IMapper mapper;
         private readonly RoleManager<IdentityRole> roleManager;
+        private readonly BookingDreamsServices.Services.IEmailService emailService;
+       
 
-        public TaiKhoanRes(UserManager<TaiKhoan> userManager, SignInManager<TaiKhoan> signInManager,RoleManager<IdentityRole> roleManager , IConfiguration configuration, BookingDreamsContext context, IMapper mapper) {
+        public TaiKhoanRes(UserManager<TaiKhoan> userManager, SignInManager<TaiKhoan> signInManager,RoleManager<IdentityRole> roleManager , IConfiguration configuration,
+                            BookingDreamsContext context, IMapper mapper, BookingDreamsServices.Services.IEmailService emailService) {
             this.userManager = userManager; 
             this.signInManager = signInManager;
             this.configuration = configuration;
             this.context = context;
             this.mapper = mapper;
             this.roleManager = roleManager;
+            this.emailService = emailService;
+            
         }
         public async Task<IdentityResult> DangKi(DangKiModel dk,string role)
         {
-            
+            //Check user exist
             var userExist = await userManager.FindByEmailAsync(dk.Email);
             if(userExist != null)
             {
@@ -41,21 +51,8 @@ namespace BookingDreams.Respositories
                 };
                 return IdentityResult.Failed(errors.ToArray());
             }
-            //if (string.IsNullOrEmpty(role))
-            //{
-            //    var khachHang = new KhachHangModel
-            //    {
-            //        HoTen = dk.HoTen,
-            //        CCCD = dk.CCCD,
-            //        GioiTinh = dk.GioiTinh,
-            //        SDT = dk.SDT,
-            //        DiaChi = dk.DiaChi,
-            //        NgaySinh = dk.NgaySinh
-            //    };
-            //    var newKhachhang = mapper.Map<KhachHang>(khachHang);
-            //    context.KhachHangs!.Add(newKhachhang);
-            //    await context.SaveChangesAsync();
-            //}
+
+            //Check role exist
             var roleExist = await roleManager.RoleExistsAsync(role);
             if (!roleExist)
             {
@@ -78,10 +75,44 @@ namespace BookingDreams.Respositories
             };
             
             var result = await userManager.CreateAsync(user, dk.Password);
+            if (!result.Succeeded)
+            {
+                var errors = new List<IdentityError>
+                {
+                    new IdentityError{Code ="Đăng kí không thàng công", Description = "Không tìm thấy Email"  }
+                };
+                return IdentityResult.Failed(errors.ToArray());
+            }
             //add role to user
-            return await userManager.AddToRoleAsync(user, role);
+            await userManager.AddToRoleAsync(user, role);
+            return IdentityResult.Success;
         }
-        public async Task<string> DangNhap(DangNhapModel dn)
+
+
+        //public async Task<string> ConfirmEmail(string token, string email)
+        //{
+        //    var user = await userManager.FindByEmailAsync(email);
+        //    if(user != null)
+        //    {
+        //        var result = await userManager.ConfirmEmailAsync(user, token);
+        //        if (result.Succeeded)
+        //        {
+        //            return "Email verified successfully";
+        //        }
+        //    }
+        //    //var message = new Message(new string[]
+        //    //{
+        //    //    "phamviabc2@gmail.com" }, 
+        //    //    "Test",
+        //    //    "<h1>Test Confirm Email</h1>"
+        //    //);
+        //    //emailService.SendEmail(message);
+        //    return "User do not exist";
+        //}
+
+        
+
+        public async Task<UserModel> DangNhap(DangNhapModel dn)
         {
             //var result = await signInManager.PasswordSignInAsync(dn.Email, dn.Password, false, false);
             //if (!result.Succeeded)
@@ -110,10 +141,18 @@ namespace BookingDreams.Respositories
                             claims: authClaims,
                             signingCredentials: new SigningCredentials(authenKey, SecurityAlgorithms.HmacSha512Signature)
                         );
-                return new JwtSecurityTokenHandler().WriteToken(token);
+                var infUser = new UserModel { 
+                    HoTen = user.HoTen,
+                    SDT = user.PhoneNumber,
+                    NgaySinh = user.NgaySinh,
+                    Email = user.Email,
+                    CCCD = user.CCCD,
+                    GioiTinh = user.GioiTinh,
+                    Token = new JwtSecurityTokenHandler().WriteToken(token)
+                };
+                return infUser;
             }
-
-            return "Login Unsuccess";
+            return new UserModel();
         }
     }
 }

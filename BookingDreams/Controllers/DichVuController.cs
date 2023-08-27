@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookingDreams.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class DichVuController : ControllerBase
@@ -28,6 +28,7 @@ namespace BookingDreams.Controllers
             var dichVu = await _repo.GetByID(id);
             return Ok(dichVu);
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(DichVuModel dichVu)
         {
@@ -38,6 +39,7 @@ namespace BookingDreams.Controllers
             await _repo.Add(dichVu);
             return Ok();
         }
+        [Authorize]
         [HttpPut]
         public async Task<IActionResult> Update(DichVuModel dichVu, int id)
         {
@@ -48,6 +50,7 @@ namespace BookingDreams.Controllers
             await _repo.Update(dichVu, id);
             return Ok();
         }
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

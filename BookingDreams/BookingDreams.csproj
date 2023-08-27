@@ -27,4 +27,8 @@
     <Folder Include="wwwroot\imges\phong\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BookingDreamsServices\BookingDreamsServices.csproj" />
+  </ItemGroup>
+
 </Project>

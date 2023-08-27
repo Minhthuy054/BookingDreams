@@ -1,5 +1,6 @@
 ﻿using BookingDreams.Models;
 using BookingDreams.Respositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +25,7 @@ namespace BookingDreams.Controllers
             var tinhThanh = await _repo.GetByID(id);
             return Ok(tinhThanh);
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Create(TinhThanhModel tinhThanh)
         {
@@ -34,6 +36,7 @@ namespace BookingDreams.Controllers
             await _repo.Add(tinhThanh);
             return Ok();
         }
+        [Authorize]
         [HttpPut]
         public async Task<IActionResult> Update(TinhThanhModel tinhThanh, int id)
         {
@@ -44,6 +47,7 @@ namespace BookingDreams.Controllers
             await _repo.Update(tinhThanh, id);
             return Ok();
         }
+        [Authorize]
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {

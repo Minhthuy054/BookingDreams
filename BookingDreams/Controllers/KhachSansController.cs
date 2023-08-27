@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BookingDreams.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class KhachSansController : ControllerBase
@@ -66,6 +66,7 @@ namespace BookingDreams.Controllers
 
         // PUT: api/KhachSans/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPut("{id}")]
         [Authorize]
         public async Task<IActionResult> PutKhachSan(int id, [FromForm] KhachSanImg khachSanImg)
@@ -143,6 +144,7 @@ namespace BookingDreams.Controllers
 
         // POST: api/KhachSans
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<KhachSanModel>> PostKhachSan([FromForm] KhachSanImg khachSan)
         {
@@ -198,6 +200,7 @@ namespace BookingDreams.Controllers
         }
 
         // DELETE: api/KhachSans/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteKhachSan(int id)
         {
