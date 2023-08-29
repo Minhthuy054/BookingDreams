@@ -110,7 +110,28 @@ namespace BookingDreams.Respositories
         //    return "User do not exist";
         //}
 
-        
+        public async Task<string> Update(DangKiModel model, string email)
+        {
+            if (model == null)
+            {
+                return "Update unsuccess";
+            }
+            if(model.Email != email)
+            {
+                return "User not exist";
+            }
+            var user = new TaiKhoan
+            {
+                HoTen = model.HoTen,
+                NgaySinh = model.NgaySinh,
+                CCCD = model.CCCD,
+                GioiTinh = model.GioiTinh,
+                PhoneNumber = model.SDT,
+                DiaChi = model.DiaChi
+            };
+            await userManager.UpdateAsync(user);
+            return "Update Success";
+        }
 
         public async Task<UserModel> DangNhap(DangNhapModel dn)
         {

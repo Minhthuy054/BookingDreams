@@ -9,13 +9,26 @@ namespace BookingDreams.Data
     {
         [Key]
         public int Id { get; set; }
-        public int IdKhachHang { get; set; }
+
+        [Required]
+        public string HoTen { get; set; } = null!;
+        [Required]
+        public DateTime NgaySinh { get; set; }
+        [Required, EmailAddress]
+        public string Email { get; set; } = null!;
+        [Required]
+        public string CCCD { get; set; }
+        [Required]
+        public string SDT { get; set; }
+        [Required]
+        public string DiaChi { get; set; }
+        [Required]
         public int IdPhong { get; set; }
+        [Required]
         public DateTime ThoiGianNhanPhong { get; set; }
+        [Required]
         public DateTime ThoiGianTraPhong { get; set; }
-        public int TongTien { get; set; }
-        public string MaGiamGia { get; set; }
-        public bool ThanhToan { get; set; }
-        public string HinhThucThanhToan { get; set; }
+        public string? MaGiamGia { get; set; } = null!;
+        public double TongTien { get; set; }
     }
 }

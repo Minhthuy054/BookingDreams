@@ -12,5 +12,6 @@ namespace BookingDreams.Data
         public int GiaTien { get; set; }
         public int SoLuong { get; set; }
         public string GhiChu { get; set; }
+        public double TongTien { get; set; }  
     }
 }

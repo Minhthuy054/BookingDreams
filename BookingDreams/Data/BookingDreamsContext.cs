@@ -18,10 +18,12 @@ namespace BookingDreams.Data
             public DbSet<DichVu>? DichVus { get; set; }
             public DbSet<KhachHang>? KhachHangs { get; set; }
             public DbSet<ThanhToan>? ThanhToans { get; set; }
-            public DbSet<Role>? Roles { get; set; }
-            public DbSet<PhanQuyen>? PhanQuyens { get; set; }
-            public DbSet<ChucVu>? ChucVus { get; set; }
+            //public DbSet<Role>? Roles { get; set; }
+            //public DbSet<PhanQuyen>? PhanQuyens { get; set; }
+            //public DbSet<ChucVu>? ChucVus { get; set; }
             public DbSet<HinhAnh>? HinhAnhs { get; set; }
+            public DbSet<DanhGia>? DanhGias { get; set; }
+            public DbSet<MaGiamGia>? MaGiamGias { get; set; }
         #endregion
         protected override void OnModelCreating(ModelBuilder builder)
         {

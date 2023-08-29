@@ -22,7 +22,7 @@ namespace BookingDreams.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("BookingDreams.Data.ChucVu", b =>
+            modelBuilder.Entity("BookingDreams.Data.DanhGia", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,17 +30,29 @@ namespace BookingDreams.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("GhiChu")
+                    b.Property<string>("BinhLuan")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TenChucVu")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdDatPhong")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdPhong")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("NgayDanhGia")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SoSao")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ChucVu");
+                    b.ToTable("DanhGia");
                 });
 
             modelBuilder.Entity("BookingDreams.Data.DatPhong", b =>
@@ -51,22 +63,34 @@ namespace BookingDreams.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("HinhThucThanhToan")
+                    b.Property<string>("CCCD")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("IdKhachHang")
-                        .HasColumnType("int");
+                    b.Property<string>("DiaChi")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HoTen")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("IdPhong")
                         .HasColumnType("int");
 
                     b.Property<string>("MaGiamGia")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("ThanhToan")
-                        .HasColumnType("bit");
+                    b.Property<DateTime>("NgaySinh")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SDT")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ThoiGianNhanPhong")
                         .HasColumnType("datetime2");
@@ -74,8 +98,8 @@ namespace BookingDreams.Migrations
                     b.Property<DateTime>("ThoiGianTraPhong")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("TongTien")
-                        .HasColumnType("int");
+                    b.Property<double>("TongTien")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -103,6 +127,9 @@ namespace BookingDreams.Migrations
                     b.Property<string>("TenDichVu")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TongTien")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -204,7 +231,7 @@ namespace BookingDreams.Migrations
                     b.ToTable("KhachSan");
                 });
 
-            modelBuilder.Entity("BookingDreams.Data.PhanQuyen", b =>
+            modelBuilder.Entity("BookingDreams.Data.MaGiamGia", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -212,15 +239,19 @@ namespace BookingDreams.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("IdQuyen")
+                    b.Property<double>("GiaTri")
+                        .HasColumnType("float");
+
+                    b.Property<int>("IdKhachSan")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdTaiKhoan")
-                        .HasColumnType("int");
+                    b.Property<string>("Ma")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("PhanQuyen");
+                    b.ToTable("MaGiamGia");
                 });
 
             modelBuilder.Entity("BookingDreams.Data.Phong", b =>
@@ -230,9 +261,6 @@ namespace BookingDreams.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
 
                     b.Property<int>("GiaPhong")
                         .HasColumnType("int");
@@ -244,18 +272,17 @@ namespace BookingDreams.Migrations
                     b.Property<int>("IdKhachSan")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdLoai")
+                    b.Property<int>("Loai")
                         .HasColumnType("int");
-
-                    b.Property<string>("Kieu")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MoTa")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SoLuong")
+                    b.Property<int>("SoLuongNguoiLon")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SoLuongTreEm")
                         .HasColumnType("int");
 
                     b.Property<string>("SoPhong")
@@ -266,34 +293,9 @@ namespace BookingDreams.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TrangThai")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Phong");
-                });
-
-            modelBuilder.Entity("BookingDreams.Data.Role", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("GhiChu")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TenQuyen")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Role");
                 });
 
             modelBuilder.Entity("BookingDreams.Data.TaiKhoan", b =>
@@ -403,8 +405,8 @@ namespace BookingDreams.Migrations
                     b.Property<DateTime>("NgayThanhToan")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("TongThanhToan")
-                        .HasColumnType("int");
+                    b.Property<double>("TongThanhToan")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -464,21 +466,21 @@ namespace BookingDreams.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "af18d7b8-75aa-4aac-b677-d1391526cc7a",
+                            Id = "0a03fe1b-334c-42e4-8b99-918933a9c642",
                             ConcurrencyStamp = "1",
                             Name = "Admin",
                             NormalizedName = "Admin"
                         },
                         new
                         {
-                            Id = "0027a3b8-e86f-49bf-99bb-999b8522962a",
+                            Id = "439dcca7-77ce-4d07-94a2-d20bc399466a",
                             ConcurrencyStamp = "2",
                             Name = "NhanVien",
                             NormalizedName = "NhanVien"
                         },
                         new
                         {
-                            Id = "fa7e2751-e0be-4c14-9448-d4ebfea7e560",
+                            Id = "b7d4c08c-9cd6-4127-8b46-97140f834035",
                             ConcurrencyStamp = "3",
                             Name = "KhachHang",
                             NormalizedName = "KhachHang"

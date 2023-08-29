@@ -12,6 +12,7 @@ using NuGet.Common;
 using NuGet.LibraryModel;
 using System.Runtime.CompilerServices;
 using System.Security.Policy;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookingDreams.Controllers
 {
@@ -129,5 +130,12 @@ namespace BookingDreams.Controllers
         //    await _repo.Delete(id);
         //    return Ok();
         //}
+        [Authorize]
+        [HttpPost("Update")]
+        public async Task<IActionResult> Update(DangKiModel model, string email)
+        {
+            var result = await _repo.Update(model, email);
+            return Ok(result);
+        }
     }
 }

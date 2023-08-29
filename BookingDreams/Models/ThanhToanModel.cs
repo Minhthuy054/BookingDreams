@@ -6,7 +6,7 @@
         public int IdDatPhong { get; set; }
         public int IdDichVu { get; set; }
         public int IdKhachHang { get; set; }
-        public int TongThanhToan { get; set; }
+        public double TongThanhToan { get; set; }
         public DateTime NgayThanhToan { get; set; }
         public string Ghichu { get; set; }
     }

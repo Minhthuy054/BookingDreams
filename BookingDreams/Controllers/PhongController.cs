@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BookingDreams.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class PhongController : ControllerBase
@@ -48,13 +48,11 @@ namespace BookingDreams.Controllers
                 IdKhachSan = phong.IdKhachSan,
                 TenPhong = phong.TenPhong,
                 SoPhong = phong.SoPhong,
-                TrangThai = phong.TrangThai,
                 GiaPhong = phong.GiaPhong,
-                IdLoai = phong.IdLoai,
-                Active = phong.Active,
                 MoTa = phong.MoTa,
-                SoLuong = phong.SoLuong,
-                Kieu = phong.Kieu
+                Loai = phong.Loai,
+                SoLuongNguoiLon = phong.SoLuongNguoiLon,
+                SoLuongTreEm = phong.SoLuongTreEm
             };
 
             if (phong.HinhAnhFile.Count() > 0)
@@ -100,10 +98,11 @@ namespace BookingDreams.Controllers
                 IdKhachSan = phong.IdKhachSan,
                 TenPhong = phong.TenPhong,
                 SoPhong = phong.SoPhong,
-                TrangThai = phong.TrangThai,
                 GiaPhong = phong.GiaPhong,
-                IdLoai = phong.IdLoai,
-                Active = phong.Active
+                MoTa = phong.MoTa,
+                Loai = phong.Loai,
+                SoLuongNguoiLon = phong.SoLuongNguoiLon,
+                SoLuongTreEm = phong.SoLuongTreEm
             };
             if (phong.HinhAnhFile.Count() > 0)
             {

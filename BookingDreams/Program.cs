@@ -66,17 +66,19 @@ builder.Services.AddAutoMapper(typeof(Program));
 //Đăng ký folder res
 builder.Services.AddScoped<FuncSupport>();
 builder.Services.AddScoped<KhachSanRes>();
-builder.Services.AddScoped<ChucVuRes>();
+//builder.Services.AddScoped<ChucVuRes>();
 builder.Services.AddScoped<DatPhongRes>();
 builder.Services.AddScoped<DichVuRes>();
-builder.Services.AddScoped<HinhAnhRes>();
+//builder.Services.AddScoped<HinhAnhRes>();
 builder.Services.AddScoped<KhachHangRes>();
-builder.Services.AddScoped<PhanQuyenRes>();
+//builder.Services.AddScoped<PhanQuyenRes>();
 builder.Services.AddScoped<PhongRes>();
-builder.Services.AddScoped<RoleRes>();
+//uilder.Services.AddScoped<RoleRes>();
 builder.Services.AddScoped<TaiKhoanRes>();
 builder.Services.AddScoped<ThanhToanRes>();
 builder.Services.AddScoped<TinhThanhRes>();
+builder.Services.AddScoped<MaGiamGiaRes>();
+builder.Services.AddScoped<DanhGiaRes>();
 builder.Services.AddScoped<Microsoft.AspNetCore.Mvc.Routing.UrlActionContext>();
 
 //Thêm cấu hình email
