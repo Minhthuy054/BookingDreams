@@ -68,11 +68,10 @@ namespace BookingDreams.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [Authorize]
         [HttpPut("{id}")]
-        [Authorize]
-        public async Task<IActionResult> PutKhachSan(int id, [FromForm] KhachSanImg khachSanImg)
+        public async Task<IActionResult> PutKhachSan(int id, KhachSanModel khachSan)
         {
 
-            if (id != khachSanImg.Id)
+            if (id != khachSan.Id)
             {
                 return BadRequest();
             }
@@ -81,51 +80,51 @@ namespace BookingDreams.Controllers
 
             try
             {
-                string lstLink = "";
-                string link = "";
-                var newKhachSan = new KhachSanModel
-                {
-                    IdTinhThanh = khachSanImg.IdTinhThanh,
-                    MaKhachSan = khachSanImg.MaKhachSan,
-                    TenKhachSan = khachSanImg.TenKhachSan,
-                    DiaChi = khachSanImg.DiaChi,
-                    GioiThieu = khachSanImg.GioiThieu,
-                    TieuDe = khachSanImg.TieuDe,
-                    GhiChu = khachSanImg.GhiChu
-                };
+                //string lstLink = "";
+                //string link = "";
+                //var newKhachSan = new KhachSanModel
+                //{
+                //    IdTinhThanh = khachSanImg.IdTinhThanh,
+                //    MaKhachSan = khachSanImg.MaKhachSan,
+                //    TenKhachSan = khachSanImg.TenKhachSan,
+                //    DiaChi = khachSanImg.DiaChi,
+                //    GioiThieu = khachSanImg.GioiThieu,
+                //    TieuDe = khachSanImg.TieuDe,
+                //    GhiChu = khachSanImg.GhiChu
+                //};
 
-                if (khachSanImg.HinhAnhFile.Count() > 0)
-                {
+                //if (khachSanImg.HinhAnhFile.Count() > 0)
+                //{
 
-                    foreach (var file in khachSanImg.HinhAnhFile)
-                    {
-                        if (!_funcSupport.IsImageFile(file))
-                        {
-                            return BadRequest("Tệp đầu vào không phải là ảnh");
-                        }
-                        DateTime date = DateTime.Now;
-                        string publishPath = Path.Combine(@"images", "KhachSan", date.ToString("yyyy-MM-dd"));
-                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", publishPath);//Đường dẫn để lưu file
-                        if (!Directory.Exists(path))
-                        {
-                            Directory.CreateDirectory(path);
-                        }
-                        string fileExtension = new FileInfo(file.FileName).Extension; //Định dạng của file (png,jpg,...)
-                        string filePath = "KhachSan" + "_" + date.ToString("yyyyMMddHHmmssfff") + "_" + file.FileName; //Tên file lưu vào hệ thống
-                                                                                                                       //Lưu file vào hệ thống
-                        using (var fileStream = new FileStream(Path.Combine(path, filePath), FileMode.Create))
-                        {
-                            await file.CopyToAsync(fileStream);
-                        }
-                        link = Path.Combine(publishPath, filePath);
-                        link = link.Replace("\\", "/");
-                        lstLink += link + ";";
-                    }
-                }
-                newKhachSan.HinhAnh = lstLink;
+                //    foreach (var file in khachSanImg.HinhAnhFile)
+                //    {
+                //        if (!_funcSupport.IsImageFile(file))
+                //        {
+                //            return BadRequest("Tệp đầu vào không phải là ảnh");
+                //        }
+                //        DateTime date = DateTime.Now;
+                //        string publishPath = Path.Combine(@"images", "KhachSan_"+ newKhachSan.TenKhachSan, date.ToString("yyyy-MM-dd"));
+                //        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", publishPath);//Đường dẫn để lưu file
+                //        if (!Directory.Exists(path))
+                //        {
+                //            Directory.CreateDirectory(path);
+                //        }
+                //        string fileExtension = new FileInfo(file.FileName).Extension; //Định dạng của file (png,jpg,...)
+                //        string filePath = "KhachSan" + "_" + date.ToString("yyyyMMddHHmmssfff") + "_" + file.FileName; //Tên file lưu vào hệ thống
+                //                                                                                                       //Lưu file vào hệ thống
+                //        using (var fileStream = new FileStream(Path.Combine(path, filePath), FileMode.Create))
+                //        {
+                //            await file.CopyToAsync(fileStream);
+                //        }
+                //        link = Path.Combine(publishPath, filePath);
+                //        link = link.Replace("\\", "/");
+                //        lstLink += link + ";";
+                //    }
+                //}
+                //newKhachSan.HinhAnh = lstLink;
 
 
-                await _repo.Update(newKhachSan,id);
+                await _repo.Update(khachSan, id);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -144,57 +143,57 @@ namespace BookingDreams.Controllers
 
         // POST: api/KhachSans
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [Authorize]
+       // [Authorize]
         [HttpPost]
-        public async Task<ActionResult<KhachSanModel>> PostKhachSan([FromForm] KhachSanImg khachSan)
+        public async Task<ActionResult<KhachSanModel>> PostKhachSan(/*[FromForm]*/ KhachSanModel khachSan)
         {
           if (_context.KhachSans == null)
           {
               return Problem("Entity set 'BookingDreamsContext.KhachSans'  is null.");
           }
-            string lstLink = "";
-            string link = "";
-            var newKhachSan = new KhachSanModel
-            {
-                IdTinhThanh = khachSan.IdTinhThanh,
-                MaKhachSan = khachSan.MaKhachSan,
-                TenKhachSan = khachSan.TenKhachSan,
-                DiaChi = khachSan.DiaChi,
-                GioiThieu = khachSan.GioiThieu,
-                TieuDe = khachSan.TieuDe,
-                GhiChu = khachSan.GhiChu
-            };
+            //string lstLink = "";
+            //string link = "";
+            //var newKhachSan = new KhachSanModel
+            //{
+            //    IdTinhThanh = khachSan.IdTinhThanh,
+            //    MaKhachSan = khachSan.MaKhachSan,
+            //    TenKhachSan = khachSan.TenKhachSan,
+            //    DiaChi = khachSan.DiaChi,
+            //    GioiThieu = khachSan.GioiThieu,
+            //    TieuDe = khachSan.TieuDe,
+            //    GhiChu = khachSan.GhiChu
+            //};
 
-            if (khachSan.HinhAnhFile.Count() > 0)
-            {
+            //if (khachSan.HinhAnhFile.Count() > 0)
+            //{
 
-                foreach (var file in khachSan.HinhAnhFile)
-                {
-                    if (!_funcSupport.IsImageFile(file))
-                    {
-                        return BadRequest("Tệp đầu vào không phải là ảnh");
-                    }
-                    DateTime date = DateTime.Now;
-                    string publishPath = Path.Combine(@"images", "KhachSan", date.ToString("yyyy-MM-dd"));
-                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", publishPath);//Đường dẫn để lưu file
-                    if (!Directory.Exists(path))
-                    {
-                        Directory.CreateDirectory(path);
-                    }
-                    string fileExtension = new FileInfo(file.FileName).Extension; //Định dạng của file (png,jpg,...)
-                    string filePath = "KhachSan" + "_" + date.ToString("yyyyMMddHHmmssfff") + "_" + file.FileName; //Tên file lưu vào hệ thống
-                    //Lưu file vào hệ thống
-                    using (var fileStream = new FileStream(Path.Combine(path, filePath), FileMode.Create))
-                    {
-                        await file.CopyToAsync(fileStream);
-                    }
-                    link = Path.Combine(publishPath, filePath);
-                    link = link.Replace("\\","/");
-                    lstLink += link + ";";
-                }
-            }
-            newKhachSan.HinhAnh = lstLink;
-            await _repo.Add(newKhachSan);
+            //    foreach (var file in khachSan.HinhAnhFile)
+            //    {
+            //        if (!_funcSupport.IsImageFile(file))
+            //        {
+            //            return BadRequest("Tệp đầu vào không phải là ảnh");
+            //        }
+            //        DateTime date = DateTime.Now;
+            //        string publishPath = Path.Combine(@"images", "KhachSan_" + newKhachSan.TenKhachSan, date.ToString("yyyy-MM-dd"));
+            //        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", publishPath);//Đường dẫn để lưu file
+            //        if (!Directory.Exists(path))
+            //        {
+            //            Directory.CreateDirectory(path);
+            //        }
+            //        string fileExtension = new FileInfo(file.FileName).Extension; //Định dạng của file (png,jpg,...)
+            //        string filePath = "KhachSan" + "_" + date.ToString("yyyyMMddHHmmssfff") + "_" + file.FileName; //Tên file lưu vào hệ thống
+            //        //Lưu file vào hệ thống
+            //        using (var fileStream = new FileStream(Path.Combine(path, filePath), FileMode.Create))
+            //        {
+            //            await file.CopyToAsync(fileStream);
+            //        }
+            //        link = Path.Combine(publishPath, filePath);
+            //        link = link.Replace("\\","/");
+            //        lstLink += link + ";";
+            //    }
+            //}
+            //newKhachSan.HinhAnh = lstLink;
+            await _repo.Add(khachSan);
 
             return CreatedAtAction("GetKhachSan", new { id = khachSan.Id }, khachSan);
         }

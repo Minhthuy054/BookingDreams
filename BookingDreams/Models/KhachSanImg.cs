@@ -11,7 +11,6 @@
         public string? TieuDe { get; set; }
         public string? GhiChu { get; set; }
 
-
         public List<IFormFile> HinhAnhFile { get; set; }
     }
 }

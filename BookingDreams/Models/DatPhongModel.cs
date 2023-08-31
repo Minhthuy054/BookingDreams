@@ -24,5 +24,6 @@ namespace BookingDreams.Models
         public DateTime ThoiGianTraPhong { get; set; }
         public string MaGiamGia { get; set; }
         public double TongTien { get; set; }
+        public float Label { get; set; }
     }
 }

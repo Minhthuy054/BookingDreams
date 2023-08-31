@@ -4,7 +4,13 @@ using BookingDreams.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.ML;
+using Org.BouncyCastle.Crypto;
+using System.Data;
 using System.IO;
+
+using Microsoft.ML.Data;
+
 
 namespace BookingDreams.Respositories
 {
@@ -51,6 +57,13 @@ namespace BookingDreams.Respositories
                 _context.Phongs!.Remove(phong);
                 await _context.SaveChangesAsync();
             }
+        }
+        public async Task<List<PhongModel>> GetByKhachSan(int id)
+        {
+            var phongs = await _context.Phongs!.ToListAsync();
+            var lstPhong =  _mapper.Map<List<PhongModel>>(phongs);
+            lstPhong = lstPhong.Where(p => p.IdKhachSan == id).ToList();
+            return lstPhong;
         }
     }
 }

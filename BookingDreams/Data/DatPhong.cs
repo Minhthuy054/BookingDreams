@@ -9,7 +9,7 @@ namespace BookingDreams.Data
     {
         [Key]
         public int Id { get; set; }
-
+        
         [Required]
         public string HoTen { get; set; } = null!;
         [Required]
@@ -24,11 +24,11 @@ namespace BookingDreams.Data
         public string DiaChi { get; set; }
         [Required]
         public int IdPhong { get; set; }
+        public string TenKhachSan { get; set; }
         [Required]
         public DateTime ThoiGianNhanPhong { get; set; }
         [Required]
         public DateTime ThoiGianTraPhong { get; set; }
-        public string? MaGiamGia { get; set; } = null!;
         public double TongTien { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using BookingDreams.Data;
 using BookingDreams.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.ML;
 
 namespace BookingDreams.Respositories
 {
@@ -13,6 +14,7 @@ namespace BookingDreams.Respositories
         public DatPhongRes(BookingDreamsContext context, IMapper mapper) { 
             _context = context;
             _mapper = mapper;
+            
         }
         //Lấy tất cả
         public async Task<List<DatPhongModel>> GetAll()
@@ -55,5 +57,15 @@ namespace BookingDreams.Respositories
                 await _context.SaveChangesAsync();
             }
         }
+        ////Get by email
+        public async Task<List<DatPhong>> GetByEmail(string email)
+        {
+            var lst = await _context.DatPhongs!.ToListAsync();
+            lst = lst.Where(dp => dp.Email == email).ToList();
+            return lst;
+        }
+
+      
+
     }
 }

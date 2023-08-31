@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Build.Framework;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.ML;
 using Microsoft.OpenApi.Models;
 //using NETCore.MailKit.Core;
 using System.Text;
@@ -68,17 +69,17 @@ builder.Services.AddScoped<FuncSupport>();
 builder.Services.AddScoped<KhachSanRes>();
 //builder.Services.AddScoped<ChucVuRes>();
 builder.Services.AddScoped<DatPhongRes>();
-builder.Services.AddScoped<DichVuRes>();
 //builder.Services.AddScoped<HinhAnhRes>();
 builder.Services.AddScoped<KhachHangRes>();
 //builder.Services.AddScoped<PhanQuyenRes>();
 builder.Services.AddScoped<PhongRes>();
 //uilder.Services.AddScoped<RoleRes>();
 builder.Services.AddScoped<TaiKhoanRes>();
-builder.Services.AddScoped<ThanhToanRes>();
 builder.Services.AddScoped<TinhThanhRes>();
 builder.Services.AddScoped<MaGiamGiaRes>();
 builder.Services.AddScoped<DanhGiaRes>();
+builder.Services.AddScoped<MLContext>();
+builder.Services.AddScoped<RecommendOrderRes>();
 builder.Services.AddScoped<Microsoft.AspNetCore.Mvc.Routing.UrlActionContext>();
 
 //Thêm cấu hình email
