@@ -87,7 +87,7 @@ namespace BookingDreams.Respositories
             await userManager.AddToRoleAsync(user, role);
             return IdentityResult.Success;
         }
-
+        
 
         //public async Task<string> ConfirmEmail(string token, string email)
         //{
@@ -174,6 +174,12 @@ namespace BookingDreams.Respositories
                 return infUser;
             }
             return new UserModel();
+        }
+        public async Task<List<TaiKhoan>> GetAllKhachHang()
+        {
+            var lstUser = await userManager.GetUsersInRoleAsync("KhachHang");
+            return (List<TaiKhoan>)lstUser;
+
         }
     }
 }

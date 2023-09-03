@@ -137,5 +137,11 @@ namespace BookingDreams.Controllers
             var result = await _repo.Update(model, email);
             return Ok(result);
         }
+        [HttpGet("GetAllKhachHang")]
+        public async Task<IActionResult> GetAllKhachHang()
+        {
+            var lstKhachHang = await _repo.GetAllKhachHang();
+            return Ok(lstKhachHang);
+        }
     }
 }
