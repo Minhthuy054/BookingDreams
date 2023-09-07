@@ -66,7 +66,7 @@ namespace BookingDreams.Controllers
 
         // PUT: api/KhachSans/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [Authorize]
+        [Authorize(Roles = "NhanVien,Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutKhachSan(int id, KhachSanModel khachSan)
         {
@@ -143,7 +143,8 @@ namespace BookingDreams.Controllers
 
         // POST: api/KhachSans
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-       // [Authorize]
+        // [Authorize]
+        [Authorize(Roles = "NhanVien,Admin")]
         [HttpPost]
         public async Task<ActionResult<KhachSanModel>> PostKhachSan(/*[FromForm]*/ KhachSanModel khachSan)
         {
@@ -193,13 +194,13 @@ namespace BookingDreams.Controllers
             //    }
             //}
             //newKhachSan.HinhAnh = lstLink;
-            await _repo.Add(khachSan);
+            var result = await _repo.Add(khachSan);
 
-            return CreatedAtAction("GetKhachSan", new { id = khachSan.Id }, khachSan);
+            return Ok(result);
         }
 
         // DELETE: api/KhachSans/5
-        [Authorize]
+        [Authorize(Roles = "NhanVien,Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteKhachSan(int id)
         {
@@ -214,9 +215,9 @@ namespace BookingDreams.Controllers
             }
 
             //_context.KhachSans.Remove(khachSan);
-            await _repo.Delete(id); //_context.SaveChangesAsync();
+           var result = await _repo.Delete(id); //_context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(result);
         }
 
         private bool KhachSanExists(int id)

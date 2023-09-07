@@ -10,3 +10,15 @@ C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreamsServices\obj\Debug\net6.0
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\refint\BookingDreamsServices.dll
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.pdb
 C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\ref\BookingDreamsServices.dll
+D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\bin\Debug\net6.0\BookingDreamsServices.deps.json
+D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\bin\Debug\net6.0\BookingDreamsServices.dll
+D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\bin\Debug\net6.0\BookingDreamsServices.pdb
+D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.csproj.AssemblyReference.cache
+D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.GeneratedMSBuildEditorConfig.editorconfig
+D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.AssemblyInfoInputs.cache
+D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.AssemblyInfo.cs
+D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.csproj.CoreCompileInputs.cache
+D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.dll
+D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\refint\BookingDreamsServices.dll
+D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.pdb
+D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\ref\BookingDreamsServices.dll

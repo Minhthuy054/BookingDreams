@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\BookingDreams.csproj": {}
+    "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\BookingDreams.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreamsServices\\BookingDreamsServices.csproj": {
+    "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreamsServices\\BookingDreamsServices.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreamsServices\\BookingDreamsServices.csproj",
+        "projectUniqueName": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreamsServices\\BookingDreamsServices.csproj",
         "projectName": "BookingDreamsServices",
-        "projectPath": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreamsServices\\BookingDreamsServices.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreamsServices\\obj\\",
+        "projectPath": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreamsServices\\BookingDreamsServices.csproj",
+        "packagesPath": "C:\\Users\\phamv\\.nuget\\packages\\",
+        "outputPath": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreamsServices\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\phamv\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -59,43 +56,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\BookingDreams.csproj": {
+    "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\BookingDreams.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\BookingDreams.csproj",
+        "projectUniqueName": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\BookingDreams.csproj",
         "projectName": "BookingDreams",
-        "projectPath": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\BookingDreams.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\obj\\",
+        "projectPath": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\BookingDreams.csproj",
+        "packagesPath": "C:\\Users\\phamv\\.nuget\\packages\\",
+        "outputPath": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\phamv\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -103,15 +83,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.305\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreamsServices\\BookingDreamsServices.csproj": {
-                "projectPath": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreamsServices\\BookingDreamsServices.csproj"
+              "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreamsServices\\BookingDreamsServices.csproj": {
+                "projectPath": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreamsServices\\BookingDreamsServices.csproj"
               }
             }
           }
@@ -184,24 +163,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.19, 6.0.19]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.19, 6.0.19]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -210,7 +171,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

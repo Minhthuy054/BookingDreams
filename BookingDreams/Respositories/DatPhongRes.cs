@@ -29,33 +29,36 @@ namespace BookingDreams.Respositories
             return _mapper.Map<DatPhongModel>(datPhong);
         }
         //Thêm mới 1 item
-        public async Task<int> Add(DatPhongModel datPhong)
+        public async Task<bool> Add(DatPhongModel datPhong)
         {
             var newDatPhong = _mapper.Map<DatPhong>(datPhong);
             _context.DatPhongs!.Add(newDatPhong);
             await _context.SaveChangesAsync();
-            return newDatPhong.Id;
+            return true;
         }
         //Sửa item
-        public async Task Update(DatPhongModel datPhong, int id)
+        public async Task<bool> Update(DatPhongModel datPhong, int id)
         {
             if(datPhong.Id == id)
             {
                 var updateDatPhong = _mapper.Map<DatPhong>(datPhong);
                 _context.DatPhongs!.Update(updateDatPhong);
                 await _context.SaveChangesAsync();
+                return true;
             }
-
+            return false;
         }
         //Xóa item
-        public async Task Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             var datPhong = _context.DatPhongs!.SingleOrDefault(dp => dp.Id == id);
             if(datPhong != null)
             {
                 _context.DatPhongs!.Remove(datPhong);
                 await _context.SaveChangesAsync();
+                return true;
             }
+            return false;
         }
         ////Get by email
         public async Task<List<DatPhong>> GetByEmail(string email)

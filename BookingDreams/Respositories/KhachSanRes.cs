@@ -26,32 +26,35 @@ namespace BookingDreams.Respositories
             var khachSan = await _context.KhachSans!.FindAsync(id);
             return _mapper.Map<KhachSanModel>(khachSan);
         }
-        public async Task<int> Add(KhachSanModel khachSan)
+        public async Task<bool> Add(KhachSanModel khachSan)
         {
             var newKhachSan = _mapper.Map<KhachSan>(khachSan);
             _context.KhachSans!.Add(newKhachSan);
             await _context.SaveChangesAsync();
-            return newKhachSan.Id;
+            return true;
         }
-        public async Task Update(KhachSanModel khachSan, int id)
+        public async Task<bool> Update(KhachSanModel khachSan, int id)
         {
             if (id == khachSan.Id)
             {
                 var update = _mapper.Map<KhachSan>(khachSan);
                 _context.KhachSans!.Update(update);
                 await _context.SaveChangesAsync();
-
+                return true;
             }
+            return false;
 
         }
-        public async Task Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             var delete = _context.KhachSans!.SingleOrDefault(ks => ks.Id == id);
             if (delete != null)
             {
                 _context.KhachSans!.Remove(delete);
                 await _context.SaveChangesAsync();
+                return true;
             }
+            return false;
         }
     }
 }

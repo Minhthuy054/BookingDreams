@@ -27,38 +27,38 @@ namespace BookingDreams.Respositories
             maGiamGia = maGiamGia.Where(m => m.IdKhachSan == id).ToList();
             return _mapper.Map<List<MaGiamGiaModel>>(maGiamGia);
         }
-        public async Task<string> Add(MaGiamGiaModel model)
+        public async Task<bool> Add(MaGiamGiaModel model)
         {
             var newModel = _mapper.Map<MaGiamGia>(model);
             _context.MaGiamGias!.Add(newModel);
             var result = await _context.SaveChangesAsync();
             if(result == 0)
             {
-                return "Add UnSuccessfully";
+                return false;
             }
-            return "Add Successfully";
+            return true;
         }
-        public async Task<string> Update (MaGiamGiaModel model,int id)
+        public async Task<bool> Update (MaGiamGiaModel model,int id)
         {
             if(model.Id != id)
             {
-                return "Update UnSuccessfully";
+                return false;
             }
             var newModel = _mapper.Map<MaGiamGia>(model);
             _context.MaGiamGias!.Update(newModel);
             await _context.SaveChangesAsync();
-            return "Update Successfully";
+            return true;
         }
-        public async Task<string> Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             var maGiamGia =  _context.MaGiamGias!.SingleOrDefault(x => x.Id == id); 
             if(maGiamGia == null)
             {
-                return "Delete UnSuccessfully";
+                return false;
             }
             _context.MaGiamGias!.Remove(maGiamGia);
             await _context.SaveChangesAsync();
-            return "Delete Successfully";
+            return true;
 
         }
     }

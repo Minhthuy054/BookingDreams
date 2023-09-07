@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zHKLG2DG/TGSIzczb9vaM69wnDPvLdPjPdEKi6h958Y=",
+  "Hash": "zAFRqy3QAbHrO/qNYm965JGLVcFF11RMBXbthStzmDY=",
   "Source": "BookingDreams",
   "BasePath": "_content/BookingDreams",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "BookingDreams\\wwwroot",
       "Source": "BookingDreams",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-17\\KhachSan_20230817162526126_trangabout2.png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-17\\KhachSan_20230817162526126_trangabout2.png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/KhachSan/2023-08-17/KhachSan_20230817162526126_trangabout2.png",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\images\\KhachSan\\2023-08-17\\KhachSan_20230817162526126_trangabout2.png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-17\\KhachSan_20230817162526270_AnhBanner - Copy.png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-17\\KhachSan_20230817162526270_AnhBanner - Copy.png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/KhachSan/2023-08-17/KhachSan_20230817162526270_AnhBanner - Copy.png",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\images\\KhachSan\\2023-08-17\\KhachSan_20230817162526270_AnhBanner - Copy.png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-17\\KhachSan_20230817162526403_footer1.png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-17\\KhachSan_20230817162526403_footer1.png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/KhachSan/2023-08-17/KhachSan_20230817162526403_footer1.png",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\images\\KhachSan\\2023-08-17\\KhachSan_20230817162526403_footer1.png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152337950_AnhBanner.png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152337950_AnhBanner.png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/KhachSan/2023-08-19/KhachSan_20230819152337950_AnhBanner.png",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152337950_AnhBanner.png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152338142_footer2.png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152338142_footer2.png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/KhachSan/2023-08-19/KhachSan_20230819152338142_footer2.png",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152338142_footer2.png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152558175_AnhBanner.png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152558175_AnhBanner.png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/KhachSan/2023-08-19/KhachSan_20230819152558175_AnhBanner.png",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152558175_AnhBanner.png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152558212_footer2.png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152558212_footer2.png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/KhachSan/2023-08-19/KhachSan_20230819152558212_footer2.png",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152558212_footer2.png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152901597_AnhBanner - Copy.png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152901597_AnhBanner - Copy.png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/KhachSan/2023-08-19/KhachSan_20230819152901597_AnhBanner - Copy.png",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152901597_AnhBanner - Copy.png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152917507_footer1.png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152917507_footer1.png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/KhachSan/2023-08-19/KhachSan_20230819152917507_footer1.png",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819152917507_footer1.png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819153417750_AnhBanner.png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819153417750_AnhBanner.png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/KhachSan/2023-08-19/KhachSan_20230819153417750_AnhBanner.png",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819153417750_AnhBanner.png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819153444244_footer1.png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819153444244_footer1.png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/KhachSan/2023-08-19/KhachSan_20230819153444244_footer1.png",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\images\\KhachSan\\2023-08-19\\KhachSan_20230819153444244_footer1.png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151042223AnhBanner.png..png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151042223AnhBanner.png..png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/phong/2023-08-16/Phong_20230816151042223AnhBanner.png..png",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151042223AnhBanner.png..png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151042310trangchu2.png..png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151042310trangchu2.png..png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/phong/2023-08-16/Phong_20230816151042310trangchu2.png..png",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151042310trangchu2.png..png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151248839AnhBanner - Copy.png..png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151248839AnhBanner - Copy.png..png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/phong/2023-08-16/Phong_20230816151248839AnhBanner - Copy.png..png",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151248839AnhBanner - Copy.png..png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151248915trangabout2.png..png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151248915trangabout2.png..png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/phong/2023-08-16/Phong_20230816151248915trangabout2.png..png",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\images\\phong\\2023-08-16\\Phong_20230816151248915trangabout2.png..png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816152219933_AnhBanner.png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816152219933_AnhBanner.png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/phong/2023-08-16/Phong_20230816152219933_AnhBanner.png",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\images\\phong\\2023-08-16\\Phong_20230816152219933_AnhBanner.png"
     },
     {
-      "Identity": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816152219977_2020-11-29.png",
+      "Identity": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\images\\phong\\2023-08-16\\Phong_20230816152219977_2020-11-29.png",
       "SourceId": "BookingDreams",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pc\\Desktop\\DACNTT2\\BookingDreams\\BookingDreams\\wwwroot\\",
+      "ContentRoot": "D:\\Workplace\\DACNTT2\\be_dreambook\\BookingDreams\\BookingDreams\\wwwroot\\",
       "BasePath": "_content/BookingDreams",
       "RelativePath": "images/phong/2023-08-16/Phong_20230816152219977_2020-11-29.png",
       "AssetKind": "All",

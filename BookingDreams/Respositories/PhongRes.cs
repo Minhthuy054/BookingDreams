@@ -36,27 +36,30 @@ namespace BookingDreams.Respositories
             var phong = await _context.Phongs!.FindAsync(id);
             return _mapper.Map<PhongModel>(phong);
         }
-        public async Task<int> Add(PhongModel phong )
+        public async Task<bool> Add(PhongModel phong )
         {
             var newPhong = _mapper.Map<Phong>(phong);
             _context.Add(newPhong);
             await _context.SaveChangesAsync();
-            return newPhong.Id;
+            return true;
         }
-        public async Task Update(PhongModel phong, int id)
+        public async Task<bool> Update(PhongModel phong, int id)
         {
             var newPhong = _mapper.Map<Phong>(phong);
             _context.Update(newPhong);
             await _context.SaveChangesAsync();
+            return true;
         }
-        public async Task Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             var phong = _context.Phongs!.SingleOrDefault(p => p.Id == id);
             if(phong != null)
             {
                 _context.Phongs!.Remove(phong);
                 await _context.SaveChangesAsync();
+                return true;
             }
+            return false;
         }
         public async Task<List<PhongModel>> GetByKhachSan(int id)
         {

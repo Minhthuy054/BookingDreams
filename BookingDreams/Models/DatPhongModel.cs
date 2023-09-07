@@ -20,10 +20,10 @@ namespace BookingDreams.Models
         public string DiaChi { get; set; }
 
         public int IdPhong { get; set; }
+        public int TenKhachSan { get; set; }
         public DateTime ThoiGianNhanPhong { get; set; }
         public DateTime ThoiGianTraPhong { get; set; }
         public string MaGiamGia { get; set; }
         public double TongTien { get; set; }
-        public float Label { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookingDreams.Controllers
 {
+    [Authorize(Roles = "NhanVien,Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class TinhThanhController : ControllerBase
@@ -33,8 +34,8 @@ namespace BookingDreams.Controllers
             {
                 return BadRequest();
             }
-            await _repo.Add(tinhThanh);
-            return Ok();
+           var result = await _repo.Add(tinhThanh);
+            return Ok(result);
         }
         [Authorize]
         [HttpPut]
@@ -44,8 +45,8 @@ namespace BookingDreams.Controllers
             {
                 Ok("Không tồn tại tỉnh thành");
             }
-            await _repo.Update(tinhThanh, id);
-            return Ok();
+            var result = await _repo.Update(tinhThanh, id);
+            return Ok(result);
         }
         [Authorize]
         [HttpDelete]
@@ -55,8 +56,8 @@ namespace BookingDreams.Controllers
             {
                 return Ok("Chưa có tỉnh thành nào");
             }
-            await _repo.Delete(id);
-            return Ok();
+           var result =  await _repo.Delete(id);
+            return Ok(result);
         }
     }
 }

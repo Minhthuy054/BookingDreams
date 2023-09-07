@@ -35,8 +35,8 @@ namespace BookingDreams.Controllers
             {
                 return BadRequest();
             }
-            await _repo.Add(datPhong);
-            return Ok();
+            var result = await _repo.Add(datPhong);
+            return Ok(result);
         }
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, DatPhongModel datPhong)
@@ -45,8 +45,8 @@ namespace BookingDreams.Controllers
             {
                 return BadRequest();
             }
-            await _repo.Update(datPhong,id);
-            return Ok();
+            var result = await _repo.Update(datPhong,id);
+            return Ok(result);
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
@@ -55,8 +55,8 @@ namespace BookingDreams.Controllers
             {
                 return NotFound();
             }
-            await _repo.Delete(id);
-            return Ok();
+            var result = await _repo.Delete(id);
+            return Ok(result);
         }
     }
 }

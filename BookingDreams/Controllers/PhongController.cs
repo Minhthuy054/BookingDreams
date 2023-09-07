@@ -50,6 +50,7 @@ namespace BookingDreams.Controllers
             var phong = await _repo.GetByID(id);
             return phong;
         }
+        [Authorize(Roles = "NhanVien,Admin")]
         [HttpPost]
         public async Task<IActionResult> Create (/*[FromForm]*/ PhongModel phong)
         {
@@ -100,9 +101,10 @@ namespace BookingDreams.Controllers
             //}
             
             //newPhong.HinhAnh = lstLink;
-            await _repo.Add(phong);
-            return Ok();
+            var result = await _repo.Add(phong);
+            return Ok(result);
         }
+        [Authorize(Roles = "NhanVien,Admin")]
         [HttpPut]
         public async Task<IActionResult> Update( PhongModel phong, int id) { 
             if(phong.Id != id)
@@ -143,9 +145,10 @@ namespace BookingDreams.Controllers
             //    }
             //}
             //newPhong.HinhAnh = lstLink;
-            await _repo.Update(phong, id);
-            return Ok();
+            var result =  await _repo.Update(phong, id);
+            return Ok(result);
         }
+        [Authorize(Roles = "NhanVien,Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -153,8 +156,8 @@ namespace BookingDreams.Controllers
             {
                 return BadRequest();
             }
-            await _repo.Delete(id);
-            return Ok();
+            var result = await _repo.Delete(id);
+            return Ok(result);
         }
 
         [HttpGet("GetByKhachSan")]

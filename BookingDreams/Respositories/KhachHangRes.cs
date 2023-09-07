@@ -35,24 +35,28 @@ namespace BookingDreams.Respositories
             return newKhachHang.Id;
         }
         //Update
-        public async Task Update(KhachHangModel khachHang, int id)
+        public async Task<bool> Update(KhachHangModel khachHang, int id)
         {
             if(khachHang.Id == id)
             {
                 var newkhachHang = _mapper.Map<KhachHang>(khachHang);
                 _context.KhachHangs!.Update(newkhachHang);
                 await _context.SaveChangesAsync();
+                return true;
             }
+            return false;
         }
         //delete khachhang
-        public async Task Delete(int id)
+        public async Task<bool> Delete(int id)
         {
             var khachHang = _context.KhachHangs!.SingleOrDefault(kh => kh.Id == id);
             if(khachHang != null)
             {
                 _context.KhachHangs!.Remove(khachHang);
                 await _context.SaveChangesAsync();
+                return true;
             }
+            return false;
         }
     }
 }

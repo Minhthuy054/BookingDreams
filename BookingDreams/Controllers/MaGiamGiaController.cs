@@ -1,10 +1,12 @@
 ﻿using BookingDreams.Models;
 using BookingDreams.Respositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookingDreams.Controllers
 {
+    [Authorize(Roles = "NhanVien,Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class MaGiamGiaController : ControllerBase
@@ -32,8 +34,9 @@ namespace BookingDreams.Controllers
                     new Response { Status = "Error", Message = "Invalid Model" });
             }
             var result = await _repo.Add(model);
-            return StatusCode(StatusCodes.Status200OK,
-                    new Response { Status = "Success", Message = result.ToString() });
+            return Ok(result);
+            //return StatusCode(StatusCodes.Status200OK,
+            //        new Response { Status = "Success", Message = result.ToString() });
         }
         [HttpPut]
         public async Task<IActionResult> Update(MaGiamGiaModel model, int id)
@@ -49,8 +52,9 @@ namespace BookingDreams.Controllers
                     new Response { Status = "Error", Message = "Invalid Model" });
             }
             var result = await _repo.Update(model, id);
-            return StatusCode(StatusCodes.Status200OK,
-                   new Response { Status = "Success", Message = result.ToString() });
+            return Ok(result);
+            //return StatusCode(StatusCodes.Status200OK,
+            //       new Response { Status = "Success", Message = result.ToString() });
         }
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
@@ -61,8 +65,9 @@ namespace BookingDreams.Controllers
                     new Response { Status = "Error", Message = "Not found item" });
             }
             var result = await _repo.Delete(id);
-            return StatusCode(StatusCodes.Status200OK,
-                  new Response { Status = "Success", Message = result.ToString() });
+            return Ok(result);
+            //return StatusCode(StatusCodes.Status200OK,
+            //      new Response { Status = "Success", Message = result.ToString() });
         }
     }
 }
