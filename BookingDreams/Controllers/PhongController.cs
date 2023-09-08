@@ -166,6 +166,12 @@ namespace BookingDreams.Controllers
             var lstPhong = await _repo.GetByKhachSan(id);
             return Ok(lstPhong);
         }
+        [HttpGet("SearchRoom")]
+        public async Task<IActionResult> Seacrch(string diaDiem, DateTime ngayBatDau, DateTime ngayKetThuc)
+        {
+            var result = await _repo.Search(diaDiem, ngayBatDau, ngayKetThuc);
+            return Ok(result);
+        }
         //[HttpGet("GetPhongRecommad")]
         //public async Task<IActionResult> GetRecommend(string email)
         //{

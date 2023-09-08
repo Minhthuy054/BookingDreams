@@ -96,10 +96,9 @@ namespace BookingDreams.Controllers
         public async Task<IActionResult> DangNhap(DangNhapModel dangNhap)
         {
             var result = await _repo.DangNhap(dangNhap);
-            if (result == null)
+            if (result.Token == null)
             {
-                return StatusCode(StatusCodes.Status404NotFound,
-               new Response { Status = "Error", Message = "User not found" });
+                return Ok(false);
             }
             return Ok(result);
         }
@@ -137,11 +136,20 @@ namespace BookingDreams.Controllers
             var result = await _repo.Update(model, email);
             return Ok(result);
         }
+        [Authorize(Roles = "NhanVien,Admin")]
         [HttpGet("GetAllKhachHang")]
         public async Task<IActionResult> GetAllKhachHang()
         {
             var lstKhachHang = await _repo.GetAllKhachHang();
             return Ok(lstKhachHang);
         }
+        [Authorize(Roles = "NhanVien,Admin")]
+        [HttpGet("GetKhachHangByEmail")]
+        public async Task<IActionResult> GetKhachHangByEmail(string email)
+        {
+            var khachHang = await _repo.GetAllKhachHangByEmail(email);
+            return Ok(khachHang);
+        }
+
     }
 }

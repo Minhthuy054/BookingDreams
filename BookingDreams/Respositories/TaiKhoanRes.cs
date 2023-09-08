@@ -181,5 +181,14 @@ namespace BookingDreams.Respositories
             return (List<TaiKhoan>)lstUser;
 
         }
+        public async Task<TaiKhoan> GetAllKhachHangByEmail(string email)
+        {
+            var lstUser = await userManager.GetUsersInRoleAsync("KhachHang");
+
+            var user = lstUser.Where(x => x.Email == email).FirstOrDefault();
+            return user;
+
+        }
+
     }
 }

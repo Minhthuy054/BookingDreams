@@ -68,5 +68,24 @@ namespace BookingDreams.Respositories
             lstPhong = lstPhong.Where(p => p.IdKhachSan == id).ToList();
             return lstPhong;
         }
+        public async Task<List<PhongModel>> Search(string diaDiem, DateTime ngayBatDau, DateTime ngayKetThuc)
+        {
+            var lstKhachSan = await _context.KhachSans!.ToListAsync();
+            lstKhachSan = lstKhachSan.Where(ks => ks.DiaChi != null && ks.DiaChi.ToLower().Contains(diaDiem.ToString().ToLower())).ToList();
+            var lstKsId = lstKhachSan.Select(id => id.Id).ToList();
+            var phongs = await _context.Phongs!.ToListAsync();
+            var lstPhong = _mapper.Map<List<PhongModel>>(phongs);
+            List<PhongModel> phong = new List<PhongModel>();
+            foreach (var id in lstKsId)
+            {
+                lstPhong = lstPhong.Where(idKs => idKs.IdKhachSan == id).ToList();
+                phong.AddRange(lstPhong);
+            }
+            var lstOrder = await _context.DatPhongs!.ToListAsync();
+            var lstOrderModel = _mapper.Map<List<DatPhongModel>>(lstOrder);
+            var phongTrong = phong.Where(p => !lstOrderModel.Any(o => o.IdPhong == p.Id && ngayBatDau < o.ThoiGianNhanPhong && ngayKetThuc > o.ThoiGianTraPhong)).ToList();
+            return phongTrong;
+        }
+
     }
 }

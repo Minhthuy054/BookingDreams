@@ -22,3 +22,15 @@ D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\obj\Debug\
 D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\refint\BookingDreamsServices.dll
 D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.pdb
 D:\Workplace\DACNTT2\be_dreambook\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\ref\BookingDreamsServices.dll
+C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\BookingDreamsServices\bin\Debug\net6.0\BookingDreamsServices.deps.json
+C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\BookingDreamsServices\bin\Debug\net6.0\BookingDreamsServices.dll
+C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\BookingDreamsServices\bin\Debug\net6.0\BookingDreamsServices.pdb
+C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.csproj.AssemblyReference.cache
+C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.AssemblyInfoInputs.cache
+C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.AssemblyInfo.cs
+C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.csproj.CoreCompileInputs.cache
+C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.dll
+C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\refint\BookingDreamsServices.dll
+C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\BookingDreamsServices.pdb
+C:\Users\pc\Desktop\DACNTT2\BookingDreams\BookingDreams\BookingDreamsServices\obj\Debug\net6.0\ref\BookingDreamsServices.dll
