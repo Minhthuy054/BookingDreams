@@ -20,7 +20,7 @@ namespace BookingDreams.Models
         public string DiaChi { get; set; }
 
         public int IdPhong { get; set; }
-        public int TenKhachSan { get; set; }
+        public string TenKhachSan { get; set; }
         public DateTime ThoiGianNhanPhong { get; set; }
         public DateTime ThoiGianTraPhong { get; set; }
         public string MaGiamGia { get; set; }

@@ -50,7 +50,7 @@ namespace BookingDreams.Controllers
             var phong = await _repo.GetByID(id);
             return phong;
         }
-        [Authorize(Roles = "NhanVien,Admin")]
+        //[Authorize(Roles = "NhanVien,Admin")]
         [HttpPost]
         public async Task<IActionResult> Create (/*[FromForm]*/ PhongModel phong)
         {
@@ -148,7 +148,7 @@ namespace BookingDreams.Controllers
             var result =  await _repo.Update(phong, id);
             return Ok(result);
         }
-        [Authorize(Roles = "NhanVien,Admin")]
+       // [Authorize(Roles = "NhanVien,Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
