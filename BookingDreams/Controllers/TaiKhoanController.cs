@@ -13,6 +13,7 @@ using NuGet.LibraryModel;
 using System.Runtime.CompilerServices;
 using System.Security.Policy;
 using Microsoft.AspNetCore.Authorization;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookingDreams.Controllers
 {
@@ -46,26 +47,16 @@ namespace BookingDreams.Controllers
         {
             var resutl = await _repo.DangKi(dk,role);
             // var confirmationLink = UrlHelperExtensions.Action(nameof(ConfirmEmail), "TaiKhoan", new { token, email = user.Email }, Request.Scheme);
-            if (!resutl.Succeeded)
+            if (resutl.Id == null)
             {
                 return StatusCode(StatusCodes.Status200OK,
                         new Response { Status = "Error", Message = "Create UnSuccess" });
             }
-            var user = new TaiKhoan
-            {
-                HoTen = dk.HoTen,
-                NgaySinh = dk.NgaySinh,
-                CCCD = dk.CCCD,
-                GioiTinh = dk.GioiTinh,
-                PhoneNumber = dk.SDT,
-                DiaChi = dk.DiaChi,
-                Email = dk.Email,
-                UserName = dk.Email
-            };
+            
             //add token to verify email
-            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var confirmationLink = Url.Action(nameof(ConfirmEmail), "TaiKhoan", new { token, email = user.Email },Request.Scheme);
-            var message = new Message(new string[] { user.Email! }, "Confirmation email link", confirmationLink!);
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(resutl);
+            var confirmationLink = Url.Action(nameof(ConfirmEmail), "TaiKhoan", new { token, email = resutl.Email },Request.Scheme);
+            var message = new Message(new string[] { resutl.Email! }, "Confirmation email link", confirmationLink!);
             _emailService.SendEmail(message);
 
             return StatusCode(StatusCodes.Status200OK,
@@ -102,33 +93,7 @@ namespace BookingDreams.Controllers
             }
             return Ok(result);
         }
-        //[HttpGet("ConfirmEmail")]
-        //public IActionResult ConfirmEmail()
-        //{
-        //    var result = _repo.ConfirmEmail();
-        //    return StatusCode(StatusCodes.Status200OK,
-        //            new Response { Status = "Success", Message = result });
-        //}
-        //[HttpPut]
-        //public async Task<IActionResult> Update(TaiKhoanModel taiKhoan, int id)
-        //{
-        //    if (taiKhoan.Id != id)
-        //    {
-        //        return BadRequest();
-        //    }
-        //    await _repo.Update(taiKhoan, id);
-        //    return Ok();
-        //}
-        //[HttpDelete]
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    if (_repo.GetAll() == null)
-        //    {
-        //        return BadRequest();
-        //    }
-        //    await _repo.Delete(id);
-        //    return Ok();
-        //}
+        
         [Authorize]
         [HttpPost("Update")]
         public async Task<IActionResult> Update(DangKiModel model, string email)
@@ -151,5 +116,10 @@ namespace BookingDreams.Controllers
             return Ok(khachHang);
         }
 
+        //[HttpPost]
+        //public async Task<IActionResult> ForgotPassword([Required] string email)
+        //{
+        //    var user = 
+        //}
     }
 }

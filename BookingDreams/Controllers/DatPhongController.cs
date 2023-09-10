@@ -58,5 +58,10 @@ namespace BookingDreams.Controllers
             var result = await _repo.Delete(id);
             return Ok(result);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetByEmail(string email)
+        {
+            return Ok(await _repo.GetByEmail(email));
+        }
     }
 }

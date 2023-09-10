@@ -84,6 +84,8 @@ builder.Services.AddScoped<Microsoft.AspNetCore.Mvc.Routing.UrlActionContext>();
 
 //Thêm cấu hình email
 builder.Services.Configure<IdentityOptions>(op => op.SignIn.RequireConfirmedEmail = true);
+builder.Services.Configure<DataProtectionTokenProviderOptions>(op => op.TokenLifespan = TimeSpan.FromHours(10));
+
 var emailConfig = builder.Configuration.GetSection("EmailConfiguration").Get<EmailConfiguration>();
 builder.Services.AddSingleton(emailConfig);
 

@@ -39,7 +39,7 @@ namespace BookingDreams.Respositories
             this.emailService = emailService;
             
         }
-        public async Task<IdentityResult> DangKi(DangKiModel dk,string role)
+        public async Task<TaiKhoan> DangKi(DangKiModel dk,string role)
         {
             //Check user exist
             var userExist = await userManager.FindByEmailAsync(dk.Email);
@@ -49,7 +49,7 @@ namespace BookingDreams.Respositories
                 {
                     new IdentityError{Code ="Đăng kí không thàng công", Description = "Email đã tồn tại"  }
                 };
-                return IdentityResult.Failed(errors.ToArray());
+                return new TaiKhoan();
             }
 
             //Check role exist
@@ -60,7 +60,7 @@ namespace BookingDreams.Respositories
                 {
                     new IdentityError{Code ="Đăng kí không thàng công", Description = "Role không tồn tại"  }
                 };
-                return IdentityResult.Failed(errors.ToArray());
+                return new TaiKhoan();
             }
             var user = new TaiKhoan
             {
@@ -77,15 +77,11 @@ namespace BookingDreams.Respositories
             var result = await userManager.CreateAsync(user, dk.Password);
             if (!result.Succeeded)
             {
-                var errors = new List<IdentityError>
-                {
-                    new IdentityError{Code ="Đăng kí không thàng công", Description = "Không tìm thấy Email"  }
-                };
-                return IdentityResult.Failed(errors.ToArray());
+                return new TaiKhoan();
             }
             //add role to user
             await userManager.AddToRoleAsync(user, role);
-            return IdentityResult.Success;
+            return user;
         }
         
 
