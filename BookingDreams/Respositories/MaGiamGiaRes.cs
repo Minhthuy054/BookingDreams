@@ -27,6 +27,12 @@ namespace BookingDreams.Respositories
             maGiamGia = maGiamGia.Where(m => m.IdKhachSan == id).ToList();
             return _mapper.Map<List<MaGiamGiaModel>>(maGiamGia);
         }
+        public async Task<MaGiamGiaModel> GetById(int id)
+        {
+            var maGiamGia = await _context.MaGiamGias!.FindAsync(id);
+            //maGiamGia = maGiamGia.Where(m => m.Id == id).ToList();
+            return _mapper.Map<MaGiamGiaModel>(maGiamGia);
+        }
         public async Task<bool> Add(MaGiamGiaModel model)
         {
             var newModel = _mapper.Map<MaGiamGia>(model);

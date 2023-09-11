@@ -66,7 +66,10 @@ namespace BookingDreams.Respositories
             var phongs = await _context.Phongs!.ToListAsync();
             var lstPhong =  _mapper.Map<List<PhongModel>>(phongs);
             lstPhong = lstPhong.Where(p => p.IdKhachSan == id).ToList();
-            return lstPhong;
+            var lstOrder = await _context.DatPhongs!.ToListAsync();
+            var lstOrderModel = _mapper.Map<List<DatPhongModel>>(lstOrder);
+            var phongTrong = lstPhong.Where(p => !lstOrderModel.Any(o => o.IdPhong == p.Id && DateTime.Now > o.ThoiGianNhanPhong && DateTime.Now < o.ThoiGianTraPhong)).ToList();
+            return phongTrong;
         }
         public async Task<List<PhongModel>> Search(string diaDiem, DateTime ngayBatDau, DateTime ngayKetThuc)
         {

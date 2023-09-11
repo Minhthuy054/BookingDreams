@@ -26,6 +26,12 @@ namespace BookingDreams.Controllers
             var result = await _repo.GetByIdKS(id);
             return Ok(result);
         }
+        [HttpGet("GetById")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var result = await _repo.GetById(id);
+            return Ok(result);
+        }
         [HttpPost]
         public async Task<IActionResult> Create(MaGiamGiaModel model)
         {

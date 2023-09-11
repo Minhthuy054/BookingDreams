@@ -116,10 +116,51 @@ namespace BookingDreams.Controllers
             return Ok(khachHang);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> ForgotPassword([Required] string email)
-        //{
-        //    var user = 
-        //}
+        [HttpPost("Forgot-Password")]
+        
+        public async Task<IActionResult> ForgotPassword([Required] string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user != null)
+            {
+                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                var forgotPasswordLink = Url.Action(nameof(ResetPassword), "TaiKhoan", new{token, email = user.Email},Request.Scheme);
+                var message = new Message(new string[] { user.Email! }, "Forgot Password link", forgotPasswordLink!);
+                _emailService.SendEmail(message);
+                return StatusCode(StatusCodes.Status200OK,
+                new Response { Status = "Success", Message = $"Password Changed request is sent on Email: {user.Email}. Please Open your email and click link" });
+            }
+            return StatusCode(StatusCodes.Status400BadRequest,
+                new Response { Status = "Error", Message = $"Could not send link to Email. Try again" });
+        }
+        [HttpGet("Reset-Password")]
+        public async Task<IActionResult> ResetPassword(string token,string email)
+        {
+            var model = new ResetPassword { Token = token, Email = email };
+            return Ok(new { model });
+        }
+
+        [HttpPost("Reset-Password")]
+       // [Route("Reset-Password")]
+        public async Task<IActionResult> ResetPassword(ResetPassword resetPassword)
+        {
+            var user = await _userManager.FindByEmailAsync(resetPassword.Email);
+            if (user != null)
+            {
+                var resetPasswordResult = await _userManager.ResetPasswordAsync(user, resetPassword.Token, resetPassword.Password);
+                if (!resetPasswordResult.Succeeded)
+                {
+                    foreach(var error in resetPasswordResult.Errors)
+                    {
+                        ModelState.AddModelError(error.Code, error.Description);
+                    }
+                    return Ok(ModelState);
+                }
+                return StatusCode(StatusCodes.Status200OK,
+                new Response { Status = "Success", Message = "Password has been changed" });
+            }
+            return StatusCode(StatusCodes.Status400BadRequest,
+                new Response { Status = "Error", Message = $"Could not send link to Email. Try again" });
+        }
     }
 }
